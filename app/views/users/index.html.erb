@@ -1,0 +1,8 @@
+<h2>Index Page</h2>
+
+<h4>You are logged in as :<%=current_user.email%></h4>
+<ul>
+  <%@users.each do |user|%>
+        <li><em><%=user.email%></em></li>
+  <%end%>
+</ul>
