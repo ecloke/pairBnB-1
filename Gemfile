@@ -46,3 +46,9 @@ group :development do
 end
 
 gem 'clearance'
+
+gem 'figaro'
+
+gem 'omniauth-facebook'
+
+gem 'omniauth'
