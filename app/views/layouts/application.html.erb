@@ -47,11 +47,11 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
+            <li><%= link_to "New Listing", listings_new_path %></li>
             <li><a href="../navbar-static-top/">Static top</a></li>
             <%if signed_in?%>
 
-              <li><%= link_to "Sign Out", sign_out_path, method: :delete%></li>
+              <li><%= link_to "Sign Out", sign_out_path, method: :delete%><%=current_user.email%></li>
             <%else%>
 
               <li><%= link_to "Sign in", sign_in_path %></li>
