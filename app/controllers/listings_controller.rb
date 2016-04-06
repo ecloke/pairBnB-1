@@ -20,11 +20,8 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    if current_user != @listing.user
-        respond_to do |format|
-        format.html { redirect_to @listing, notice: 'You are not allowed to edit other user\'s listing' }
-      end
-    end
+    authorize! :update, @listing
+    
   end
 
   # POST /listings

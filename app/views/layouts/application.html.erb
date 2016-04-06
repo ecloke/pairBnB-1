@@ -48,7 +48,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "New Listing", listings_new_path %></li>
-            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li><a href="/listings/index">Top Listings</a></li>
             <%if signed_in?%>
               <li><%= link_to "Sign Out", sign_out_path, method: :delete%></li>
               <li style="margin-top: 15px"><em><%=current_user.email%></em></li>
@@ -68,6 +68,7 @@
    
 
      
+    <div class=container style="padding-bottom:150px">
 
   
   <%= yield %>
@@ -84,10 +85,11 @@
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
   </div> -->
-
-  <footer class="footer">
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
+    </div>
+  
 </body>
+<footer class="footer">
+        <p>&copy; 2015 Company, Inc.</p>
+</footer>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>

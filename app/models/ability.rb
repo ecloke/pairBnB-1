@@ -28,12 +28,23 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    user ||= User.new
+    
 
-    if user.admin?
-        can :manage, :all
-    else
-        can :read, :all
+    if user
+        can :update, Listing do |listing|
+            listing.user == user
+        end
+        can :destroy, Listing do |listing|
+            listing.user == user
+        end
+        can :edit, Listing do |listing|
+            listing.user == user
+        end
+        can :create, Listing
+        
     end
+
+    
   end
+
 end
