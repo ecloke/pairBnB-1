@@ -21,19 +21,24 @@
     <%= form.submit %>
   </div>
 
+  <a href="/auth/facebook">
+  <i class="fa fa-facebook"/>
+  Log In with Facebook
+  </a>
+
   <div class="other-links">
     <% if Clearance.configuration.allow_sign_up? %>
       <%= link_to t(".sign_up"), sign_up_path %>
+    <br>  
     <% end %>
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
+
+
  </div>
+
 <% end %>
 
 
-<a href="/auth/facebook">
-  <i class="fa fa-facebook"/>
-  Log In with Facebook
-</a>
 
 
