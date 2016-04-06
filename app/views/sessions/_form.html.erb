@@ -1,15 +1,23 @@
 <%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
+ <div class="container"> 
+  <div class="form-control">
     <%= form.label :email %>
     <%= form.text_field :email, type: 'email' %>
   </div>
 
-  <div class="password-field">
+  <div class="form-control">
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
 
-  <div class="submit-field">
+  <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+  </div>
+
+  <div class="btn btn-lg btn-primary btn-block">
+
     <%= form.submit %>
   </div>
 
@@ -19,6 +27,7 @@
     <% end %>
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
+ </div>
 <% end %>
 
 
