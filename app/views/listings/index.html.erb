@@ -24,7 +24,8 @@
         <td><%= listing.accommodates %></td>
         <td><%= listing.address %></td>
         <td><%= listing.city %></td>
-        <td><%= listing.user.email %></td>
+
+        <td><%= link_to "#{ listing.user.profile.name }", profile_path(listing.user.profile) %></td>
         <td><%= listing.name %></td>
         <td><%= link_to 'Show', listing %></td>
        

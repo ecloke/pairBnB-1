@@ -26,8 +26,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
+  <strong>Host:</strong>
+  <%= link_to "#{ @listing.user.profile.name }", profile_path(@listing.user.profile) %>
 </p>
 
 <p>

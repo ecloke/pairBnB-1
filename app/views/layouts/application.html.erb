@@ -51,7 +51,11 @@
             <li><a href="/listings/index">Top Listings</a></li>
             <%if signed_in?%>
               <li><%= link_to "Sign Out", sign_out_path, method: :delete%></li>
-              <li style="margin-top: 15px"><em><%=current_user.email%></em></li>
+              <%if !current_user.profile.nil?%>
+                <li><a href="/profiles/<%=current_user.id%>"><em><%=current_user.profile.name%></em></a></li>
+              <%else%>
+                <li><a href="/profiles/new"><em>Create a profile</em></a></li>
+              <%end%>  
             <%else%>
               <li><%= link_to "Sign in", sign_in_path %></li>
             <%end%>

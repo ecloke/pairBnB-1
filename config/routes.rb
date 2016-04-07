@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+ 
   get 'listings/create'
 
   get 'listings/new'
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   resources :users, only:[:create, :new, :show, :edit, :update, :destroy] 
 
   resources :listings
+
+  resources :profiles, only:[:create, :new, :show, :edit, :update]
 
 #   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
 #   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
