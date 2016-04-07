@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @profile.image_url(:big).to_s %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @profile.name %>
 </p>
@@ -20,10 +24,6 @@
   <%= @profile.description %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @profile.image %>
-</p>
 
 <p>
   <strong>Registered Email:</strong>
