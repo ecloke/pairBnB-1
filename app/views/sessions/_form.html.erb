@@ -1,7 +1,7 @@
 <%= form_for :session, url: session_path do |form| %>
  <div class="container"> 
   <div class="form-control">
-    <%= form.label :email %>
+    <%= form.label :email%>
     <%= form.text_field :email, type: 'email' %>
   </div>
 
@@ -16,9 +16,8 @@
           </label>
   </div>
 
-  <div class="btn btn-lg btn-primary btn-block">
-
-    <%= form.submit %>
+  <div >
+    <%= form.submit "Sign In", class: "btn btn-lg btn-primary btn-block"  %>
   </div>
 
   <a href="/auth/facebook">

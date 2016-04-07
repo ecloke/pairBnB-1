@@ -30,7 +30,9 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     
 
-    if user
+    if user.email == "admin@admin.com"
+        can :manage, :all
+    elsif
         can :update, Listing do |listing|
             listing.user == user
         end
@@ -41,7 +43,7 @@ class Ability
             listing.user == user
         end
         can :create, Listing
-        
+            
     end
 
     
