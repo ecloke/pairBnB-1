@@ -5,7 +5,9 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+
+    return @listings = Listing.where(user_id: params[:user_id]) if params[:user_id]
+        @listings = Listing.all
   end
 
   # GET /listings/1

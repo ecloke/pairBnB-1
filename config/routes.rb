@@ -25,7 +25,13 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] 
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :listings
+  end
+
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :reservations
+  end
 
   resources :listings
 
