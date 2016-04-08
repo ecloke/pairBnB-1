@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<%=flash[:alert]%>
+<h1>KevBnB's listings</h1>
+
+<table width=100%>
+  <thead>
+    <tr>
+      <th>Home type</th>
+      <th>Room type</th>
+      <th>Accommodates</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Posted by</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.home_type %></td>
+        <td><%= listing.room_type %></td>
+        <td><%= listing.accommodates %></td>
+        <td><%= listing.address %></td>
+        <td><%= listing.city %></td>
+        <td><%= listing.user.email %></td>
+        <td><%= listing.name %></td>
+        <td><%= link_to 'Show', listing %></td>
+       
+        <%if can? :update, listing%>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <%end%>
+        <%if can? :destroy, listing%>
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path %>

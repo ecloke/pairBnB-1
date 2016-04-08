@@ -55,3 +55,7 @@ gem 'omniauth'
 
 
 #bootstrap for rails following link  https://launchschool.com/blog/integrating-rails-and-bootstrap-part-1
+
+
+gem 'cancancan', '~> 1.10'
+#https://github.com/CanCanCommunity/cancancan

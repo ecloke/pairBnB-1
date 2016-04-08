@@ -1,30 +1,43 @@
 <%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
+ <div class="container"> 
+  <div class="form-control">
+    <%= form.label :email%>
     <%= form.text_field :email, type: 'email' %>
   </div>
 
-  <div class="password-field">
+  <div class="form-control">
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
 
-  <div class="submit-field">
-    <%= form.submit %>
+  <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
   </div>
+
+  <div >
+    <%= form.submit "Sign In", class: "btn btn-lg btn-primary btn-block"  %>
+  </div>
+
+  <a href="/auth/facebook">
+  <i class="fa fa-facebook"/>
+  Log In with Facebook
+  </a>
 
   <div class="other-links">
     <% if Clearance.configuration.allow_sign_up? %>
       <%= link_to t(".sign_up"), sign_up_path %>
+    <br>  
     <% end %>
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
+
+
+ </div>
+
 <% end %>
 
 
-<a href="/auth/facebook">
-  <i class="fa fa-facebook"/>
-  Log In with Facebook
-</a>
 
 
