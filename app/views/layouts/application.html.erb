@@ -52,7 +52,8 @@
             <%if signed_in?%>
               <li><%= link_to "Sign Out", sign_out_path, method: :delete%></li>
               <%if !current_user.profile.nil?%>
-                <li><a href="/profiles/<%=current_user.profile.id%>"><%=current_user.profile.name%><%= image_tag current_user.profile.image_url(:thumb).to_s %></a></li>
+                <li><a href="/profiles/<%=current_user.profile.id%>"><%=current_user.profile.name%></a></li>
+                <li style="margin-top: 5px"><%= image_tag current_user.profile.image_url(:thumb).to_s, class: "img-circle" %></li>
               <%else%>
                 <li><a href="/profiles/new"><em>Create a profile</em></a></li>
               <%end%>  
