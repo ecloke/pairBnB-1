@@ -44,6 +44,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
+    byebug
     respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
@@ -74,7 +75,7 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params[:listing][:user_id] = current_user.id    
-      params.require(:listing).permit(:home_type, :room_type, :accommodates, :address, :city, :user_id, :name)
+      params.require(:listing).permit(:home_type, :room_type, :accommodates, :address, :city, :user_id, :name, :picture)
       
     end
 end
