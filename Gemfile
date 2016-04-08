@@ -46,3 +46,12 @@ group :development do
 end
 
 gem 'clearance'
+
+gem 'figaro'
+
+gem 'omniauth-facebook'
+
+gem 'omniauth'
+
+
+#bootstrap for rails following link  https://launchschool.com/blog/integrating-rails-and-bootstrap-part-1
