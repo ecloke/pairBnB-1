@@ -61,6 +61,6 @@ gem 'cancancan', '~> 1.10'
 #https://github.com/CanCanCommunity/cancancan
 
 #imageuploader
-gem 'carrierwave'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'

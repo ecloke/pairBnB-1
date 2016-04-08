@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<%if !@listing.pictures.blank?%>
+<ol>
+  <%@listing.pictures.each do |picture|%>
+
+    <li><%= image_tag picture.url(:big).to_s %></li>
+  <%end%>
+<%end%>
+</ol>
+</p>
+
+<p>
   <strong>Home type:</strong>
   <%= @listing.home_type %>
 </p>
@@ -36,6 +47,7 @@
   <strong>Name:</strong>
   <%= @listing.name %>
 </p>
+<%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id) %>
 <%if can? :update, @listing%>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%end%>

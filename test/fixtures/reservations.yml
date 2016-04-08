@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guest_name: MyString
+  host_name: MyString
+  from: 2016-04-08
+  until: 2016-04-08
+  user_id: 1
+  listing_id: 1
+
+two:
+  guest_name: MyString
+  host_name: MyString
+  from: 2016-04-08
+  until: 2016-04-08
+  user_id: 1
+  listing_id: 1
