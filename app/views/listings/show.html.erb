@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<%if !@listing.pictures.blank?%>
+<ol>
+  <%@listing.pictures.each do |picture|%>
 
-  <%= image_tag @listing.picture_url(:big).to_s %>
-
+    <li><%= image_tag picture.url(:big).to_s %></li>
+  <%end%>
+<%end%>
+</ol>
 </p>
 
 <p>

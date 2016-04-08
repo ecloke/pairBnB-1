@@ -30,8 +30,11 @@
         <td><%= listing.user.email %></td>
         <%end%>
         <td><%= listing.name %></td>
+        <% if listing.pictures.blank? %>
         <td><%= link_to 'Show', listing %></td>
-       
+        <% else %>
+        <td><a href="/listings/<%=listing.id%>"><span class="glyphicon glyphicon-picture"></span></a></td>
+        <% end %>
         <%if can? :update, listing%>
           <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <%end%>
