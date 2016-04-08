@@ -36,15 +36,25 @@ class Ability
         can :update, Listing do |listing|
             listing.user == user
         end
+       
         can :destroy, Listing do |listing|
             listing.user == user
         end
         can :edit, Listing do |listing|
             listing.user == user
         end
+     
         can :create, Listing
-            
-    end
+
+        can :update, Profile do |profile|
+            profile.user == user
+        end
+        can :edit, Profile do |profile|
+            profile.user == user
+        end
+        can :create, Profile
+    
+        end
 
     
   end

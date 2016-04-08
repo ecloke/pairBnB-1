@@ -24,7 +24,11 @@
         <td><%= listing.accommodates %></td>
         <td><%= listing.address %></td>
         <td><%= listing.city %></td>
+        <%if !listing.user.profile.nil?%>
+        <td><%= link_to "#{ listing.user.profile.name }", profile_path(listing.user.profile) %></td>
+        <%else%>
         <td><%= listing.user.email %></td>
+        <%end%>
         <td><%= listing.name %></td>
         <td><%= link_to 'Show', listing %></td>
        

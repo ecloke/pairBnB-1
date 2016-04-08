@@ -8,7 +8,7 @@ class UsersController < Clearance::UsersController
   
   def create
     @user = user_from_params
-byebug
+
     if @user.save
       sign_in @user
       redirect_to '/'

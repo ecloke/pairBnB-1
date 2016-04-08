@@ -59,3 +59,8 @@ gem 'omniauth'
 
 gem 'cancancan', '~> 1.10'
 #https://github.com/CanCanCommunity/cancancan
+
+#imageuploader
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'

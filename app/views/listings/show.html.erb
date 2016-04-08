@@ -25,10 +25,12 @@
   <%= @listing.city %>
 </p>
 
+<%if !@listing.user.profile.nil?%>
 <p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
+  <strong>Host:</strong>
+  <%= link_to "#{ @listing.user.profile.name }", profile_path(@listing.user.profile) %>
 </p>
+<%end%>
 
 <p>
   <strong>Name:</strong>
