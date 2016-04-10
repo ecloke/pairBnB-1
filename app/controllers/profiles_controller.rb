@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
- 
+  
     @profile = Profile.new
   end
 
@@ -42,7 +42,6 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }

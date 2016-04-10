@@ -13,10 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ 
 .image {
     border: 2px solid #a1a1a1;
     padding: 10px 40px; 
     background: #dddddd;
     width: 300px;
     border-radius: 25px;
+}
+
+.carousel-control.left, 
+.carousel-control.right {
+    background-image: none
 }

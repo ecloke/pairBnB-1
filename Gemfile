@@ -8,6 +8,12 @@ gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
+
+
+
+
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -64,3 +70,7 @@ gem 'cancancan', '~> 1.10'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+gem 'jquery-turbolinks'
+
+gem 'will_paginate' , '~> 3.0.5'

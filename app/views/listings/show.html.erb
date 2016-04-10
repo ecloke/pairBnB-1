@@ -1,14 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
 <%if !@listing.pictures.blank?%>
-<ol>
-  <%@listing.pictures.each do |picture|%>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+      <div class="item active">
+          <%= image_tag @listing.pictures[0].url(:full).to_s, class: "img-rounded" %>
+      </div>
 
-    <li><%= image_tag picture.url(:big).to_s %></li>
-  <%end%>
+       <% @listing.pictures.each do |picture| %>
+        <div class="item">
+          <%= image_tag picture.url(:full).to_s, class: "img-rounded" %>
+        </div>
+        <%end%>
+       
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
 <%end%>
-</ol>
 </p>
 
 <p>
@@ -47,7 +70,7 @@
   <strong>Name:</strong>
   <%= @listing.name %>
 </p>
-<%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id) %>
+<%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id) %> |
 <%if can? :update, @listing%>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%end%>

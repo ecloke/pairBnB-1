@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
+   resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :profile, except:[:index]
+  end
+
   resources :listings
 
   resources :profiles, only:[:create, :new, :show, :edit, :update]
