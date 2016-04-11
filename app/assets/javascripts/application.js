@@ -11,7 +11,30 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require bootstrap-sprockets
+
+
 //= require jquery_ujs
+
+jQuery(function($) {
+    if($(window).width()>769){
+        $('.navbar .dropdown').hover(function() {
+            $(this).find('.dropdown-menu').first().stop(true, true).delay(10).slideDown();
+
+        }, function() {
+            $(this).find('.dropdown-menu').first().stop(true, true).delay(200).slideUp();
+
+        });
+
+        $('.navbar .dropdown > a').click(function(){
+            location.href = this.href;
+        });
+
+    }
+});
+
+
 //= require turbolinks
 
 //= require_tree .

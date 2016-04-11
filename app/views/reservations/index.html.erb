@@ -2,15 +2,18 @@
 
 <h1>Listing Reservations</h1>
 
-<table>
+
+<%if current_user.reservations.blank?%>
+  <h4>You have no reservations yet.</h4>
+<%else%>
+<table width=100%>
   <thead>
     <tr>
       <th>Guest name</th>
       <th>Host name</th>
       <th>From</th>
       <th>Until</th>
-      <th>User</th>
-      <th>Listing</th>
+      <th>Reservation Made On</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,16 +25,13 @@
         <td><%= reservation.host_name %></td>
         <td><%= reservation.from %></td>
         <td><%= reservation.until %></td>
-        <td><%= reservation.user_id %></td>
-        <td><%= reservation.listing_id %></td>
+        <td><%= reservation.created_at.strftime("%d %b. %Y") %></td>
         <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%end%>
 
 <br>
-
-<%= link_to 'New Reservation', new_reservation_path %>

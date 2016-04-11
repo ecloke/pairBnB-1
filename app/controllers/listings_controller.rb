@@ -5,7 +5,9 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+
+    return @listings = Listing.paginate(:page => params[:page], per_page: 5).where(user_id: params[:user_id]) if params[:user_id]
+        @listings = Listing.paginate(:page => params[:page], per_page: 5).order(created_at: :desc)
   end
 
   # GET /listings/1
@@ -15,7 +17,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @listing = @user.listings.new
+    @listing = Listing.new
   end
 
   # GET /listings/1/edit
