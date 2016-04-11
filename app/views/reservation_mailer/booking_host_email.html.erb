@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations <%=@host.profile.name%>, you have a new reservation from <%=@customer.profile.name %></h1>
+    <p>
+      You can see details of your new reservation here: <a href="http://localhost:3000/users/<%=@host.id%>/reservations/<%=@reservation_id%>">link</a>
+    </p>
+  </body>
+</html>
