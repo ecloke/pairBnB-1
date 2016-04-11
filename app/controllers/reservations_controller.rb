@@ -29,9 +29,16 @@ class ReservationsController < ApplicationController
   def create
     @user = current_user
     @reservation = @user.reservations.new(reservation_params)
+    @listing = Listing.find(params[:reservation][:listing_id])
 
     respond_to do |format|
       if @reservation.save
+        
+        ReservationMailer.booking_customer_email(@user, @listing.user , @reservation.id).deliver_now
+        ReservationMailer.booking_host_email(@user, @listing.user , @reservation.id).deliver_now
+
+
+
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

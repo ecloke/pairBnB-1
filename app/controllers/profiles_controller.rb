@@ -30,6 +30,9 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @profile.save
+        #testing mailer on profile creation
+        UserMailer.welcome_email(current_user).deliver_now
+
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
