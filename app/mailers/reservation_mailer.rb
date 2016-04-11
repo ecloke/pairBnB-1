@@ -15,7 +15,7 @@ class ReservationMailer < ApplicationMailer
     @customer = customer
     @host = host
     @reservation_id = reservation_id
-    mail(to: @customer.email, subejct: 'Congratulation ' + customer.profile.name.to_s + '. Your reservation is confirmed!')
+    mail(to: @customer.email, subject: 'Congratulation ' + customer.profile.name.to_s + '. Your reservation is confirmed!')
   end
 
 
