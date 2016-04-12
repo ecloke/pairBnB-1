@@ -15,7 +15,8 @@
           <table class="table">
             <thead>
               <tr>
-                <th class="col-md-8">Descriptions</th>
+                <th class="col-md-6">Descriptions</th>
+                <th class="col-md-2"></th>
                 <th class="col-md-2">Posted by</th>
                 <th colspan="3" class="col-md-2" id="last-column"></th>
               </tr>
@@ -25,7 +26,8 @@
               <% @listings.each do |listing| %>
                 <tr>
                     <td>
-                      <h2 class="listing-name"><%= listing.name %></h2>
+                      <h3 class="listing-name"><%= listing.name %></h3>
+                      
                       <p><b>Type of house:</b><%= listing.home_type %></p>
                       <p><b>Type of room: </b><%= listing.room_type %></p>
                       <p><b>Maximum amount of tenants: </b><%= listing.accommodates %></p>
@@ -33,16 +35,20 @@
                       <p><b>City: </b><%= listing.city %></p>
                       <p><b>Posted on: </b><%= listing.created_at.strftime("%D")%></p>
                       </td>
-
+                    <td>
+                      <h4 class="price-title">USD<%= listing.price_per_night%> per night</h4>
+                    </td>
                       <%if !listing.user.profile.nil?%>
-                         <td>
+                         <td class="table-col-name">
+                        
+
                          <%= link_to "#{ listing.user.profile.name }", profile_path(listing.user.profile) %>
                          <br>
                          <br>
                          <%= image_tag listing.user.profile.image_url(:medium).to_s, class: "img-circle" %>
-                         </td>
+                         </td> 
                       <%else%>
-                          <td><%= listing.user.email %></td>
+                          <td class="table-col-name"><%= listing.user.email %></td>
                       <%end%>
 
                       <% if listing.pictures.blank? %>

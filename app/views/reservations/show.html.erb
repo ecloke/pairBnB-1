@@ -26,4 +26,12 @@
 </p>
 
 <%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', listings_path %>
+<%= link_to 'Back', listings_path %><br>
+<%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+
+
+
+
+
+
+

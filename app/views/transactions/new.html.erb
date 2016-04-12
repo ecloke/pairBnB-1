@@ -1,0 +1,39 @@
+ <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+        <script>
+          braintree.setup("<%=@client_token%>", "dropin", {
+            container: "payment-form"
+          });
+
+        </script>
+ 
+
+
+<%= form_tag transactions_path do%>
+  <%= render 'customer_form'  %>
+  <p>Please enter your payment details:</p>
+  <%= form_for(@transaction) do |f| %>  
+          <% if @transaction.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+              <ul>
+              <% @transaction.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+    <div>  
+      <%= f.hidden_field :reservation_id, value: @reservation.id %>
+    </div>
+
+    <div id="payment-form">
+      <%= f.submit %>
+    </div>
+    <br>
+  <%end%>
+
+<%end%>
+
+
+
