@@ -14,6 +14,10 @@
   width: auto;
 }
 
+#welcome{
+  margin-top: 15px;
+}
+
 #navbar{
   font-size: 14px;
   margin-top: 5px;
@@ -48,7 +52,37 @@
   color:black;
 }
 
+#table-listings{
+  text-align: left;
+}
+#first-column{
+  text-align:right;
+}
+th {
+ text-align: center;
+ font-size: 18px;
+ letter-spacing: 4px;
+ padding: 10px;
+ background-color: gray;
+ color: white ;
+}
+td {
+  font-size: 14px;
+  padding: 10px;
+}
+.last-column{
+  border:none;
+}
 
+table{
+
+}
+
+.listing-name{
+  letter-spacing: 3px;
+  color: darkgray;
+  font-family: Courier;
+}
 </style>
 
 
@@ -98,7 +132,7 @@
                 <%if !current_user.profile.blank?%>
                   <a href="/profiles/<%=current_user.profile.id%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><%=current_user.profile.name%> <span class="caret"></span></a>
                 <% else %>
-                 <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Welcome <span class="caret"></span></div>
+                 <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p id="welcome">Welcome<span class="caret"></span></p></div>
                 <% end %> 
 
                   <ul class="dropdown-menu">
