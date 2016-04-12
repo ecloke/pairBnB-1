@@ -6,8 +6,8 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
 
-    return @listings = Listing.paginate(:page => params[:page], per_page: 5).where(user_id: params[:user_id]) if params[:user_id]
-        @listings = Listing.paginate(:page => params[:page], per_page: 5).order(created_at: :desc)
+    return @listings = Listing.paginate(:page => params[:page], per_page: 3).where(user_id: params[:user_id]) if params[:user_id]
+        @listings = Listing.paginate(:page => params[:page], per_page: 3).order(created_at: :desc)
   end
 
   # GET /listings/1

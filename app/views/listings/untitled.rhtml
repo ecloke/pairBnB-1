@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+<%=flash[:alert]%>
+
+<div class="container">
+
+    <h1>KevBnB's listings</h1>
+
+    <%if @listings.blank?%>
+
+      <h4>You have not listed any listing yet</h4>
+
+    <%else%>
+      <div class="row">
+        <div class="col-lg-6">
+          <table width=100%>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Home type</th>
+                <th>Room type</th>
+                <th>Accommodates</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Posted at</th>
+                <th>Posted by</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @listings.each do |listing| %>
+                <tr>
+                  <td><%= listing.name %></td>
+                  <td><%= listing.home_type %></td>
+                  <td><%= listing.room_type %></td>
+                  <td><%= listing.accommodates %></td>
+                  <td><%= listing.address %></td>
+                  <td><%= listing.city %></td>
+                  <td><%= listing.created_at.strftime("%D")%></td>
+
+                    <%if !listing.user.profile.nil?%>
+                       <td><%= link_to "#{ listing.user.profile.name }", profile_path(listing.user.profile) %></td>
+                    <%else%>
+                        <td><%= listing.user.email %></td>
+                    <%end%>
+
+                      <% if listing.pictures.blank? %>
+                         <td><%= link_to 'Show', listing %></td>
+                      <% else %>
+                         <td><a href="/listings/<%=listing.id%>"><span class="glyphicon glyphicon-picture"></span></a></td>
+                      <% end %>
+                        <%if can? :update, listing%>
+                           <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+                        <%end%>
+                        <%if can? :destroy, listing%>
+                           <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <%end%>
+                  
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <%end%>
+</div>
+  <br>
+<%= will_paginate @listings%><br>
+<%= link_to 'New Listing', new_listing_path %>

@@ -34,12 +34,12 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
         
-        ReservationMailer.booking_customer_email(@user, @listing.user , @reservation.id).deliver_now
-        ReservationMailer.booking_host_email(@user, @listing.user , @reservation.id).deliver_now
+        ReservationMailer.delay.booking_customer_email(@user, @listing.user , @reservation.id)
+        ReservationMailer.delay.booking_host_email(@user, @listing.user , @reservation.id)
 
 
 
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to @reservation, notice: 'Reservation was successfully created. A confirmation email will be forwarded to your email soon!' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }

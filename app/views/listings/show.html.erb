@@ -6,9 +6,13 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>     
+       <% @listing.pictures.each_with_index do |picture, index| %>
+           <% if index == 0 %>
+             <li data-target="screenshot-carousel" data-slide-to="#{index}" class="active"></li>            
+           <% else %>
+             <li data-target="screenshot-carousel" data-slide-to="#{index}"></li>
+           <% end %>
+         <% end %>
       </ol>
       <div class="carousel-inner" role="listbox">
       <div class="item active">

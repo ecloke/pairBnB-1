@@ -1,14 +1,21 @@
+<div class="text-center">
+  <h3>  Welcome back. Please log in to continue.</h3>
+</div>  
+<br>
+<br>
 <%= form_for :session, url: session_path do |form| %>
- <div class="container"> 
-  <div class="form-control">
-    <%= form.label :email%>
-    <%= form.text_field :email, type: 'email' %>
-  </div>
+ <div class="container">
 
-  <div class="form-control">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form.label :email%>
+    <%= form.email_field :email, class:"form-control" %>
+  
+
+ 
     <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+    <%= form.password_field :password, class:"form-control" %>
+
 
   <div class="checkbox">
           <label>
@@ -33,11 +40,8 @@
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 
-
+  </div>
  </div>
 
 <% end %>
-
-
-
 
