@@ -27,7 +27,13 @@
 
 <%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', listings_path %><br>
-<%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+
+<% if !@reservation.transactions.present? %>
+  <%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+<%elsif @reservation.transactions.first.status != "authorized" %>
+  <%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+  
+<% end %>
 
 
 
