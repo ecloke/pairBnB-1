@@ -1,0 +1,50 @@
+ <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+        <script>
+          braintree.setup("<%=@client_token%>", "dropin", {
+            container: "dropin"
+          });
+
+        </script>
+ 
+<p id="notice"><%= notice %></p>
+
+<%= form_tag transactions_path do%>
+  
+  <%= form_for(@transaction) do |f| %>  
+          <% if @transaction.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+              <ul>
+              <% @transaction.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+    <div>  
+      <%= f.hidden_field :reservation_id, value: @reservation.id %>
+    </div>
+
+   <p><%=@reservation.guest_name%>, thank you for making a reservation with KevBnB.</p>
+   <p>Please confirm the dates of stay before you proceed to pay with your credit card.</p>
+   <p>Reservation details:</p>
+   <br>Period of stay: <b><%= @reservation.from%></b> until <b><%=@reservation.until%></b></p>
+   <br> 
+   <p>Total amount: USD <%= @reservation.total_price%> for <%=(@reservation.until - @reservation.from).to_i%> night(s)</p>
+
+
+
+    <div id="dropin" ></div>
+
+
+    <div id="payment-form">
+      <%= f.submit %>
+    </div>
+    <br>
+  <%end%>
+
+<%end%>
+
+
+

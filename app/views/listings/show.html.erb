@@ -39,6 +39,11 @@
 </p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @listing.name %>
+</p>
+
+<p>
   <strong>Home type:</strong>
   <%= @listing.home_type %>
 </p>
@@ -68,12 +73,14 @@
   <strong>Host:</strong>
   <%= link_to "#{ @listing.user.profile.name }", profile_path(@listing.user.profile) %>
 </p>
-<%end%>
 
 <p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
+  <strong>Price Per Night:</strong>
+  USD <%= @listing.price_per_night %>
 </p>
+<%end%>
+<br>  
+
 <%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id) %> |
 <%if can? :update, @listing%>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

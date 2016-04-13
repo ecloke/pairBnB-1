@@ -2,6 +2,21 @@ class ListingsController < ApplicationController
    before_action :set_listing, only: [:show, :edit, :update, :destroy]
    before_action :require_login, only: [:edit, :update, :destroy, :create, :new, :index]
 
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
   # GET /listings
   # GET /listings.json
   def index
@@ -76,7 +91,7 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
        
-      params.require(:listing).permit(:home_type, :room_type, :accommodates, :address, :city, :user_id, :name, {:pictures => []})
+      params.require(:listing).permit(:home_type, :room_type, :accommodates, :address, :city, :user_id, :name, {:pictures => []}, :price_per_night)
       
     end
 end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
  
  
+  get 'transactions/new'
+
   get 'welcome/index'
 
   get 'listings/create'
@@ -44,6 +46,9 @@ Rails.application.routes.draw do
   resources :profiles, only:[:create, :new, :show, :edit, :update]
 
   resources :reservations, except:[:edit, :update]
+
+  resources :transactions, only: [:new, :create]
+
 
 #   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
 #   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

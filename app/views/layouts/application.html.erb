@@ -4,6 +4,7 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 
 <style type="text/css">
   
@@ -79,9 +80,20 @@ table{
 }
 
 .listing-name{
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: darkgray;
   font-family: Courier;
+}
+
+.price-title{
+  color:black;
+  text-align: center;
+  padding-top:13px;
+}
+
+.table-col-name{
+  text-align: center;
+
 }
 </style>
 
@@ -95,6 +107,7 @@ table{
 
 <head>
   <title>KevBnB</title>
+  <%= include_gon %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 
