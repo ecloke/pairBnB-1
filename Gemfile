@@ -23,7 +23,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
+gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -71,7 +71,7 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
-# gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'
 
 gem 'will_paginate' , '~> 3.0.5'
 
@@ -81,3 +81,9 @@ gem 'bootstrap_form'
 
 gem 'braintree', '~> 2.33.1'
 gem 'gon', '~> 5.1.2'
+
+
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'searchkick'

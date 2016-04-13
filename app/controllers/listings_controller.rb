@@ -3,20 +3,6 @@ class ListingsController < ApplicationController
    before_action :require_login, only: [:edit, :update, :destroy, :create, :new, :index]
 
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
   # GET /listings
   # GET /listings.json
   def index

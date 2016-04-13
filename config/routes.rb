@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
- 
+ post 'search', to: 'search#search'
+ get 'search', to: 'search#search'
+
  
   get 'transactions/new'
 
