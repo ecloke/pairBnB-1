@@ -16,7 +16,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
       <div class="item active">
-          <%= image_tag @listing.pictures[1].url(:full).to_s, class: "img-rounded" %>
+          <%= image_tag @listing.pictures[0].url(:full).to_s, class: "img-rounded" %>
       </div>
 
        <% @listing.pictures.each do |picture| %>

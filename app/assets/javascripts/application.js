@@ -34,6 +34,19 @@ jQuery(function($) {
     }
 });
 
+   $(document).ready(function(){
+
+     $.ajax({
+
+
+     });
+
+
+
+   });
+
+
+
 
 
 // require turbolinks

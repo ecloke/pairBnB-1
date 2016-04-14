@@ -1,6 +1,11 @@
-<div class="container">
 
-  <div class="col-md-6">
+
+
+
+
+<div class="container" id='listing-form'>
+ <div class="jumbotron"> 
+ 
     <%= form_for(@listing) do |f| %>
       <% if @listing.errors.any? %>
         <div id="error_explanation">
@@ -14,45 +19,47 @@
         </div>
       <% end %>
       
+      <ul class="col-md-6" id="form-ul">
+        <li><%= f.label :name %>
+            <%= f.text_field :name, class:'form-control' , id:"form-li"%></li><br>
       
-        <%= f.label :name %><br>
-        <%= f.text_field :name, class:'form-control' %>
-      
-      
-        <%= f.label :home_type %><br>
-        <%= f.text_field :home_type, class:'form-control'  %>
+        
+        <li><%= f.label :home_type %>
+            <%= f.text_field :home_type, class:'form-control'  , id:"form-li"%></li><br>
 
       
-        <%= f.label :room_type %><br>
-        <%= f.text_field :room_type, class:'form-control'  %>
+        <li><%= f.label :room_type %>
+            <%= f.text_field :room_type, class:'form-control'  , id:"form-li"%></li><br>
       
       
-        <%= f.label :accommodates %><br>
-        <%= f.number_field :accommodates, class:'form-control'  %>
+        <li><%= f.label :accommodates %>
+            <%= f.number_field :accommodates, class:'form-control'  , id:"form-li"%></li><br>
+      </ul>
+      
+      <ul class="col-md-6" id="form-ul">
+        <li><%= f.label :address %>
+            <%= f.text_area :address, class:'form-control'  , id:"form-li"%></li><br>
       
       
-        <%= f.label :address %><br>
-        <%= f.text_area :address, class:'form-control'  %>
-      
-      
-        <%= f.label :city %><br>
-        <%= f.text_field :city, class:'form-control'  %>
+        <li><%= f.label :city %>
+            <%= f.text_field :city, class:'form-control'  , id:"form-li"%></li><br>
 
-        <%= f.label :pirce_per_night %> (USD)<br>
-        <%= f.number_field :price_per_night, class:'form-control' %>
+        <li><%= f.label :price_per_night %> (USD)
+            <%= f.number_field :price_per_night, class:'form-control' , id:"form-li"%></li><br>
       
-        <br>
-        <%= f.label :pictures %><br>
-        <%= f.file_field :pictures, multiple: true %>
-        <br>
+        
+        <li><%= f.label :pictures %>
+            <%= f.file_field :pictures, multiple: true , id:"form-li"%></li><br>
+        
+      </ul>
 
-        <div class="actions">
-          <%= f.submit "Submit", class:"btn btn-sm btn-success btn-block" %>
+        <div class="col-md-12">
+          <%= f.submit "Submit", class:"btn btn-sm btn-success btn-block" , id: "form-submit-btn"%>
         </div>
     <% end %>
-
-     <%= link_to 'Back', listings_path %>
-  </div>
+        
+        <%= link_to 'Back', listings_path, class:"btn btn-sm btn-primary", id:"form-submit-btn-2"%>
+ </div>
 </div>
 
-<nr>  
+  

@@ -1,4 +1,9 @@
 <div id="clearance" class="sign-in">
+    <div class="text-center">
+      <p id="notice"><%= notice %></p>
+      <%=flash[:alert]%>
+    </div>
+
  
     <%= render partial: '/sessions/form' %>
 
