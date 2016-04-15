@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-
+<div class="container">
 <p>
+<div class="test-listing">
 <%if !@listing.pictures.blank?%>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="">
       <!-- Indicators -->
@@ -16,7 +17,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
       <div class="item active">
-          <%= image_tag @listing.pictures[1].url(:full).to_s, class: "img-rounded" %>
+          <%= image_tag @listing.pictures[0].url(:full).to_s, class: "img-rounded" %>
       </div>
 
        <% @listing.pictures.each do |picture| %>
@@ -37,52 +38,55 @@
     </div><!-- /.carousel -->
 <%end%>
 </p>
+      <div class="box-listing">
+        <p>
+          <strong>Name:</strong>
+          <%= @listing.name %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
-</p>
+        <p>
+          <strong>Home type:</strong>
+          <%= @listing.home_type %>
+        </p>
 
-<p>
-  <strong>Home type:</strong>
-  <%= @listing.home_type %>
-</p>
+        <p>
+          <strong>Room type:</strong>
+          <%= @listing.room_type %>
+        </p>
 
-<p>
-  <strong>Room type:</strong>
-  <%= @listing.room_type %>
-</p>
+        <p>
+          <strong>Accommodates:</strong>
+          <%= @listing.accommodates %>
+        </p>
 
-<p>
-  <strong>Accommodates:</strong>
-  <%= @listing.accommodates %>
-</p>
+        <p>
+          <strong>Address:</strong>
+          <%= @listing.address %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @listing.address %>
-</p>
+        <p>
+          <strong>City:</strong>
+          <%= @listing.city %>
+        </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @listing.city %>
-</p>
+        <%if !@listing.user.profile.nil?%>
+        <p>
+          <strong>Host:</strong>
+          <%= link_to "#{ @listing.user.profile.name }", profile_path(@listing.user.profile) %>
+        </p>
 
-<%if !@listing.user.profile.nil?%>
-<p>
-  <strong>Host:</strong>
-  <%= link_to "#{ @listing.user.profile.name }", profile_path(@listing.user.profile) %>
-</p>
-
-<p>
-  <strong>Price Per Night:</strong>
-  USD <%= @listing.price_per_night %>
-</p>
-<%end%>
+        <p>
+          <strong>Price Per Night:</strong>
+          USD <%= @listing.price_per_night %>
+        </p>
+        <%end%>
+      </div>
 <br>  
 
-<%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id) %> |
+<%= link_to 'New Reservation', new_reservation_path(listing_id: @listing.id), class:"new-reservation" , class:"btn btn-primary"%> 
 <%if can? :update, @listing%>
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Edit', edit_listing_path(@listing) , class:"btn btn-info"%> 
 <%end%>
-<%= link_to 'Back', listings_path %>
+<%= link_to 'Back', listings_path , class:"btn btn-primary"%>
+</div>
+</div>

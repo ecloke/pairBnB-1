@@ -28,11 +28,11 @@
   
   <div class="field">
     <%= f.label :from %><br>
-    <%= f.date_select :from %>
+    <%= f.date_field :from %>
   </div>
   <div class="field">
     <%= f.label :until %><br>
-    <%= f.date_select :until %>
+    <%= f.date_field :until %>
   </div>
 
     <%= f.hidden_field :guest_name, value: current_user.profile.name %>
@@ -52,7 +52,7 @@
   <br>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Done!", class:"btn btn-sm btn-info"%>
     
   </div>
 

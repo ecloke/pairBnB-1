@@ -1,0 +1,65 @@
+<h1 class="text-center">Listings Search</h1>
+<%if @listings.blank?%>
+  <div class="container">
+      <h4>Sorry. No match found.</h4>
+      <h4>Please try again with another search parameters.</h4>
+  </div>
+<%else%>  
+
+  
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-md-6">Descriptions</th>    
+            <th colspan="6" class="col-md-6"></th>
+          </tr>
+        </thead>
+        <% @listings.each do |listing| %>
+          <tbody>
+            <tr>
+              <td>
+                      <h3><%= link_to listing.name, controller: "listings", action: "show", id: listing.id%></h3>
+                        <p class="search-bullets">Host : <%= listing.user.profile.name%></p>
+                        <p class="search-bullets">Location : <%= listing.city%></p>
+                        <p class="search-bullets">Max number of people : <%= listing.accommodates%></p>
+                        <p class="search-bullets">Price per night : USD <%= listing.price_per_night%></p>
+
+              </td>
+              <td>
+                                <%if !listing.pictures.blank?%>
+                                 
+                                        <!-- Indicators -->
+                                  
+                                   <div "id=myCarousel" class="carousel slide" data-ride="carousel" style="">
+                                        
+                                        <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                            <%= image_tag listing.pictures[0].url(:full).to_s, class: "img-mini-carousel" %>
+                                        </div>
+
+                                         <% listing.pictures.each do |picture| %>
+                                          <div class="item">
+                                            <%= image_tag picture.url(:full).to_s, class: "img-mini-carousel" %>
+                                          </div>
+                                          <%end%>
+                                         
+                                        </div>
+                                     
+                                      </div><!-- /.carousel -->
+                                  <%end%>
+
+              </td>
+            </tr>
+        <% end %>
+          
+        </tbody>                
+      </table>
+    </div>
+  </dic>
+    
+ 
+<%end%>
+
+ 

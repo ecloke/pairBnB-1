@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true%>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true%>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -8,95 +10,8 @@
 
 <style type="text/css">
   
-#brand-image
-{
-  height: 150%;
- 
-  width: auto;
-}
 
-#welcome{
-  margin-top: 15px;
-}
-
-#navbar{
-  font-size: 14px;
-  margin-top: 5px;
-  font-family: Courier;
-  letter-spacing: 2px;
-}
-
-.dropdown-menu{
-  letter-spacing: 0px;
-  font-size: 12px;
-}
-
-.navbar-right{
-  letter-spacing: 0.5px;
-
-}
-
-.tales {
-  width: 100%;
-}
-.carousel-inner{
-  width:100%;
-  max-height: 600px !important;
-}
-
-.carousel-caption {
-    top: 0;
-    bottom: auto;
-}
-
-#caption-1{
-  color:black;
-}
-
-#table-listings{
-  text-align: left;
-}
-#first-column{
-  text-align:right;
-}
-th {
- text-align: center;
- font-size: 18px;
- letter-spacing: 4px;
- padding: 10px;
- background-color: gray;
- color: white ;
-}
-td {
-  font-size: 14px;
-  padding: 10px;
-}
-.last-column{
-  border:none;
-}
-
-table{
-
-}
-
-.listing-name{
-  letter-spacing: 2px;
-  color: darkgray;
-  font-family: Courier;
-}
-
-.price-title{
-  color:black;
-  text-align: center;
-  padding-top:13px;
-}
-
-.table-col-name{
-  text-align: center;
-
-}
 </style>
-
 
 
 
@@ -115,7 +30,7 @@ table{
 <body>
   
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -125,14 +40,27 @@ table{
             <span class="icon-bar"></span>
           </button>
             <a class="navbar-brand">
-              <img id="brand-image" alt="kevbnb" src="http://i66.tinypic.com/261hzra.png">
+              <img id="brand-image" alt="kevbnb" src="http://i66.tinypic.com/25gbbdl.png">
           </a>  
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_url%></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>   
+            <li class="nav-title"><%= link_to "Home", root_url%></li>
+            <li class="nav-title"></li>
+            <li class="nav-title"></li> 
+            <li> 
+            
+             <form id="searchForm" action="/search/" method="get">
+
+              <div class="input-group">
+                  <input type="text" class="form-control-search" placeholder=" Search" name="q" id="srch-term" >
+                  <div class="input-group-btn">
+                      <button class="btn btn-default-1" type="submit"><i class="glyphicon glyphicon-search" id="search-icon"></i></button>
+                  </div>
+              </div>
+             </form>
+           
+            </li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "New Listing", listings_new_path %></li>
@@ -143,7 +71,7 @@ table{
               <li></li>
                 <li class="dropdown">
                 <%if !current_user.profile.blank?%>
-                  <a href="/profiles/<%=current_user.profile.id%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><%=current_user.profile.name%> <span class="caret"></span></a>
+                  <a href="/profiles/<%=current_user.profile.id%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Welcome <span class="caret"></span></a>
                 <% else %>
                  <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p id="welcome">Welcome<span class="caret"></span></p></div>
                 <% end %> 
@@ -175,27 +103,23 @@ table{
       </div>
     </nav>
    
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
+  
 
      
-    <div class="container" style="padding-bottom:150px">
+    
 
   
   <%= yield %>
  
-    </div>
+    
   
 </body>
-    <div class="container-marketing">
-      <footer>
+  
+      <footer class="footer-container">
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p class="company-footer">&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
-    </div>
+   
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
