@@ -1,4 +1,5 @@
 web: bundle exec rails server -p $PORT
 web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
 redis: redis-server
-sidekiq: bundle exec sidekiq -q default -q mailer
+worker: bundle exec sidekiq -c 5 -v
+
