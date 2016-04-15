@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
   def create
     @user = current_user
     @listing = @user.listings.new(listing_params)
-    @listi.index_document
+
 
     respond_to do |format|
       if @listing.save
