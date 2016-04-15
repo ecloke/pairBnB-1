@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
- # post 'search', to: 'search#search'
- # get 'search', to: 'search#search'
+ post 'search', to: 'search#search'
+ get 'search', to: 'search#search'
 
  
   get 'transactions/new'
@@ -43,11 +43,7 @@ Rails.application.routes.draw do
     resources :profile, except:[:index]
   end
 
-  resources :listings do
-    collection do
-      get 'search'
-    end
-  end
+  resources :listings 
 
   resources :profiles, only:[:create, :new, :show, :edit, :update]
 
