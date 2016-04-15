@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
    before_action :set_listing, only: [:show, :edit, :update, :destroy]
    before_action :require_login, only: [:edit, :update, :destroy, :create, :new, :index]
 
-
+  
   # GET /listings
   # GET /listings.json
   def index
@@ -32,6 +32,7 @@ class ListingsController < ApplicationController
   def create
     @user = current_user
     @listing = @user.listings.new(listing_params)
+    @listi.index_document
 
     respond_to do |format|
       if @listing.save
@@ -61,6 +62,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
+
     @listing.destroy
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
