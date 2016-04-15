@@ -97,3 +97,5 @@ end
 
 gem 'unicorn'
 gem 'bonsai-elasticsearch-rails'
+
+gem 'redis'
