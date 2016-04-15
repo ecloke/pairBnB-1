@@ -166,7 +166,7 @@ min-width: 100%; min-height: 100%;
 width: auto; height: auto; z-index: -1;
 background: url(polina.jpg) no-repeat;
 background-size: cover;
-margin-top: -100px;
+margin-top: -300px;
 }
 
 @media screen and (max-device-width: 800px) {
@@ -307,4 +307,42 @@ font-size: 20px;
 #form-submit-btn-2{
   margin-top: 10px;
   margin-left: 15px;  
+}
+
+.listing-hidden{
+  display: none;
+}
+.click-click{
+  margin: auto;
+  text-align: center;
+  background:transparent;
+  margin-top: -55px;  
+
+}
+
+#new-listing{
+ margin-right:35px;
+}
+.test-listing{
+  position:relative;
+}
+.box-listing{
+  position:absolute;
+  top:110px;
+  border:transparent;
+  border-style:groove;
+  width:600px;
+  text-align:center;
+  font-size:medium;
+  font-family:courier;
+  left:280px;
+ background:rgba(255,255,255,0.5);
+ letter-spacing:4px;
+ display:none;
+}
+.text-center{
+  font:large;
+  font:courier;
+  letter-spacing:3px;
+  color:gray;
 }

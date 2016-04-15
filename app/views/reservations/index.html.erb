@@ -2,7 +2,7 @@
 
 <h1 class="text-center">Listing Reservations</h1>
 
-
+<div class="container">
 <%if current_user.reservations.blank?%>
   <h4>You have no reservations yet.</h4>
 <%else%>
@@ -33,5 +33,5 @@
   </tbody>
 </table>
 <%end%>
-
+</div>
 <br>

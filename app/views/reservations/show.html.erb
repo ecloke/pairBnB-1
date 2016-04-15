@@ -1,5 +1,5 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Guest name:</strong>
   <%= @reservation.guest_name %>
@@ -25,15 +25,20 @@
   <%= @reservation.listing.name %>
 </p>
 
-<%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', listings_path %><br>
+<ul style="list-style-type: none;display:inline;">
+
+
 
 <% if !@reservation.transactions.present? %>
-  <%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+  <li><%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s , class:"btn btn-info"  %>
 <%elsif @reservation.transactions.first.status != "authorized" %>
-  <%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s %>
+  <li><%= link_to "Pay", new_transaction_path + "?id=" + @reservation.id.to_s , class:"btn btn-info"  %>
   
 <% end %>
+
+<%= link_to 'Back', listings_path , class:"btn btn-primary"%></li>
+</ul>
+</div>
 
 
 

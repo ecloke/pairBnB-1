@@ -33,13 +33,29 @@ jQuery(function($) {
 
     }
 });
+$(document).ready(function(){
+        $('#new-listing').click(function(){             
+            $('.listing-hidden').slideDown('slow');
+            $(this).fadeOut('slow');
+        }) ;
+        $('.click-click').click(function(){             
+            $('.listing-hidden').slideUp('slow');
+            $('#new-listing').fadeIn('slow');
+        }) ;
+       
+        $('.img-rounded').hover(function(){             
+            $('.box-listing').fadeIn('slow');
+        }) ;
+        $('body').hover(function(){             
+            $('.box-listing').fadeOut('slow');
 
-   $(document).ready(function(){
-
-     $.ajax({
 
 
-     });
+        }) ;
+        
+
+       
+
 
 
 

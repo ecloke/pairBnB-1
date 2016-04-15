@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 <%=flash[:alert]%>
 
-
-
+<%@listing=Listing.new%>
+<div class="listing-hidden"><%= render 'form', object: @listing%>
+<p class="click-click"><span class="glyphicon glyphicon-chevron-up" ></span></p>
+</div>
 
 <div class="container" >
 
-    <h1 id="kevin-listing">KevBnB's listings</h1>
-   <div  class="text-center"><%= link_to 'New Listing', new_listing_path %></div>
+  
+   <div align="right">
+   <a href="#" class="btn btn-lg btn-info" id="new-listing"><span class="glyphicon glyphicon-plus-sign"></span> List your property!</a>
+   </div>
+  
 
     <%if @listings.blank?%>
 
