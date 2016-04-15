@@ -1,6 +1,7 @@
-
+require 'elasticsearch/model'
 class Listing < ActiveRecord::Base
-  
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_many :reservations, :dependent => :destroy
   belongs_to :user
   mount_uploaders :pictures, ListingPictureUploader

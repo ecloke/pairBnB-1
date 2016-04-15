@@ -96,3 +96,4 @@ group :production do
 end
 
 gem 'unicorn'
+gem 'bonsai-elasticsearch-rails'
