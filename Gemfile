@@ -87,3 +87,12 @@ gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 gem 'searchkick'
+
+group :production do
+ # Heroku
+ # ==================
+ gem 'rails_12factor' # Heroku Gem Supports
+  # Using puma for
+end
+
+gem 'unicorn'
