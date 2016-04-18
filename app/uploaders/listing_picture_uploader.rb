@@ -41,7 +41,7 @@ class ListingPictureUploader < CarrierWave::Uploader::Base
   end
 
   version :big do
-    process :resize_to_fit => [500, 500]
+    process :resize_to_fill => [500, 283]
   end
 
   version :full do

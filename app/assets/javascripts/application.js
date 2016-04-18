@@ -48,17 +48,7 @@ $(document).ready(function(){
         }) ;
         $('body').hover(function(){             
             $('.box-listing').fadeOut('slow');
-
-
-
         }) ;
-        
-
-       
-
-
-
-
    });
 
 
